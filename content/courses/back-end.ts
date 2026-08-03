@@ -1,0 +1,64 @@
+import type { Course } from '@/lib/courses/types';
+
+// Real EDUZAH course. hero.image/gallery[].src intentionally omitted until
+// real photos exist at public/courses/back-end/ — CourseImage falls back to
+// the branded placeholder. Add once available, e.g.:
+// hero.image = { src: '/courses/back-end/hero.webp', alt: 'EDUZAH Back-End Web Development training' }
+export const backEndCourse: Course = {
+  id: 'back-end',
+  slug: 'back-end',
+  categoryId: 'technology',
+  status: 'active',
+  meta: {
+    title: 'Back-End Web Development Diploma — EDUZAH',
+    description:
+      'Learn how to build secure, scalable server-side applications, databases and APIs through practical back-end development training.',
+  },
+  hero: {
+    badge: 'Technology Program',
+    headline: 'Back-End Web Development Diploma',
+    subheadline:
+      'Learn how to build secure, scalable server-side applications, databases and APIs through practical back-end development training.',
+  },
+  quickInfo: {
+    duration: '20 Weeks · 150 Hours',
+    format: 'Online / Offline',
+    language: 'English',
+  },
+  // Curriculum covers two distinct tracks (PHP/Laravel and .NET/C#) as
+  // given in the source — kept as separate modules rather than merged,
+  // since they are different technologies.
+  curriculum: [
+    {
+      title: 'PHP & MySQL (PHP/Laravel Track)',
+      description:
+        'Programming/back-end foundations, PHP fundamentals, Advanced PHP, Error Handling, Exceptions, MySQL, PDO, SELECT / INSERT / UPDATE / DELETE, Prepared Statements, SQL Injection prevention',
+    },
+    {
+      title: 'Authentication & Sessions',
+      description: 'Authentication, Login / Logout, Password Hashing, Sessions',
+    },
+    {
+      title: 'Laravel Framework',
+      description: 'Laravel Framework content',
+    },
+    {
+      title: '.NET & C# (Alternative Track)',
+      description: '.NET fundamentals, C#, Data Types, Loops, Conditions, Arrays',
+    },
+    {
+      title: 'Object-Oriented Programming in C#',
+      description: 'OOP in C#, Classes & Objects, Inheritance, Polymorphism, Methods, Properties',
+    },
+    {
+      title: 'Collaboration & Projects',
+      description: 'Git, GitHub, Team Collaboration, Mini Projects / Assessments',
+    },
+  ],
+  skills: ['PHP', 'Laravel', 'MySQL', '.NET / C#', 'Object-Oriented Programming', 'Git & GitHub'],
+  gallery: [
+    { alt: 'EDUZAH Back-End Development training session' },
+    { alt: 'EDUZAH Back-End Development workshop' },
+    { alt: 'EDUZAH Back-End Development lab session' },
+  ],
+};
