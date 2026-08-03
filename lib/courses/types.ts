@@ -8,10 +8,16 @@ export interface CourseMeta {
   ogImage?: string;
 }
 
+export interface CourseImageRef {
+  src: string;
+  alt: string;
+}
+
 export interface CourseHero {
+  badge?: string;
   headline: string;
   subheadline?: string;
-  backgroundImage?: string;
+  image?: CourseImageRef;
 }
 
 export interface CourseQuickInfo {
@@ -27,11 +33,23 @@ export interface CourseOutcome {
   description?: string;
 }
 
+export interface CourseGalleryImage {
+  src?: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface CourseTestimonial {
   name: string;
   quote: string;
-  photo?: string;
+  photo?: CourseImageRef;
   rating?: number;
+}
+
+export interface CourseStudentProject {
+  title: string;
+  description?: string;
+  image?: CourseImageRef;
 }
 
 export interface CourseOffer {
@@ -43,6 +61,7 @@ export interface CourseOffer {
 export interface CoursePricing {
   currency: string;
   fullPrice: number;
+  originalPrice?: number;
   installmentCount?: number;
   installmentAmount?: number;
   currentOffer?: CourseOffer;
@@ -50,8 +69,9 @@ export interface CoursePricing {
 
 export interface CourseInstructor {
   name: string;
+  role?: string;
   bio?: string;
-  photo?: string;
+  photo?: CourseImageRef;
 }
 
 export interface CourseFaqItem {
@@ -76,7 +96,9 @@ export interface Course {
   curriculum?: CourseOutcome[];
   skills?: string[];
   careerOutcomes?: CourseOutcome[];
+  gallery?: CourseGalleryImage[];
   whyEduzah?: CourseOutcome[];
+  studentProjects?: CourseStudentProject[];
   testimonials?: CourseTestimonial[];
   pricing?: CoursePricing;
   instructors?: CourseInstructor[];

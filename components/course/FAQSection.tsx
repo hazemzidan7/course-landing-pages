@@ -6,12 +6,14 @@ export function FAQSection({ faq }: { faq?: CourseFaqItem[] }) {
   return (
     <section className="section faq">
       <h2>Frequently Asked Questions</h2>
-      {faq.map((item) => (
-        <details key={item.question}>
-          <summary>{item.question}</summary>
-          <p>{item.answer}</p>
-        </details>
-      ))}
+      <div className="accordion">
+        {faq.map((item) => (
+          <details key={item.question} className="accordion__item">
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
     </section>
   );
 }

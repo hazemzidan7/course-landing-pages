@@ -4,9 +4,11 @@ export function Skills({ skills }: { skills?: string[] }) {
   return (
     <section className="section skills">
       <h2>Skills You&apos;ll Gain</h2>
-      <ul>
+      <ul className="chip-list">
         {skills.map((skill) => (
-          <li key={skill}>{skill}</li>
+          <li key={skill} className="chip">
+            {skill}
+          </li>
         ))}
       </ul>
     </section>

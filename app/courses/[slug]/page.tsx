@@ -9,8 +9,11 @@ import { Audience } from '@/components/course/Audience';
 import { Curriculum } from '@/components/course/Curriculum';
 import { Skills } from '@/components/course/Skills';
 import { CareerOutcomes } from '@/components/course/CareerOutcomes';
+import { Gallery } from '@/components/course/Gallery';
 import { WhyEduzah } from '@/components/course/WhyEduzah';
+import { StudentProjects } from '@/components/course/StudentProjects';
 import { Testimonials } from '@/components/course/Testimonials';
+import { Instructor } from '@/components/course/Instructor';
 import { Pricing } from '@/components/course/Pricing';
 import { RegistrationForm } from '@/components/course/RegistrationForm';
 import { FAQSection } from '@/components/course/FAQSection';
@@ -58,14 +61,17 @@ export default async function CoursePage({ params }: { params: Promise<Params> }
 
   return (
     <main>
-      <Hero hero={course.hero} />
+      <Hero course={course} />
       <QuickInfo quickInfo={course.quickInfo} />
       <Audience audience={course.audience} />
       <Curriculum curriculum={course.curriculum} />
       <Skills skills={course.skills} />
       <CareerOutcomes careerOutcomes={course.careerOutcomes} />
+      <Gallery gallery={course.gallery} />
       <WhyEduzah whyEduzah={course.whyEduzah} />
+      <StudentProjects studentProjects={course.studentProjects} />
       <Testimonials testimonials={course.testimonials} />
+      <Instructor instructors={course.instructors} />
       <Pricing pricing={course.pricing} />
       <Suspense fallback={null}>
         <RegistrationForm courseId={course.id} courseSlug={course.slug} />

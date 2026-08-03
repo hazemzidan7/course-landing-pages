@@ -63,7 +63,20 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
   if (status === 'success') {
     return (
       <section id="registration" className="section registration-form">
-        <p>Thank you! Your registration has been received.</p>
+        <div className="registration-form__success">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M5 13l4 4L19 7"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <h2>You&apos;re registered!</h2>
+          <p>Thank you — your registration has been received. Our team will contact you shortly.</p>
+        </div>
       </section>
     );
   }
@@ -77,6 +90,7 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
           <input
             type="text"
             value={form.name}
+            aria-invalid={Boolean(errors.name)}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
           {errors.name && <span role="alert">{errors.name}</span>}
@@ -88,6 +102,7 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
             type="tel"
             inputMode="tel"
             value={form.phone}
+            aria-invalid={Boolean(errors.phone)}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
           />
           {errors.phone && <span role="alert">{errors.phone}</span>}
@@ -102,26 +117,28 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
           />
         </label>
 
-        <fieldset>
+        <fieldset className="segmented">
           <legend>Attendance Preference</legend>
-          <label>
-            <input
-              type="radio"
-              name="attendance"
-              checked={form.attendance === 'online'}
-              onChange={() => setForm({ ...form, attendance: 'online' })}
-            />
-            Online
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="attendance"
-              checked={form.attendance === 'offline'}
-              onChange={() => setForm({ ...form, attendance: 'offline' })}
-            />
-            Offline
-          </label>
+          <div className="segmented__options">
+            <label className={`segmented__option ${form.attendance === 'online' ? 'is-selected' : ''}`}>
+              <input
+                type="radio"
+                name="attendance"
+                checked={form.attendance === 'online'}
+                onChange={() => setForm({ ...form, attendance: 'online' })}
+              />
+              Online
+            </label>
+            <label className={`segmented__option ${form.attendance === 'offline' ? 'is-selected' : ''}`}>
+              <input
+                type="radio"
+                name="attendance"
+                checked={form.attendance === 'offline'}
+                onChange={() => setForm({ ...form, attendance: 'offline' })}
+              />
+              Offline
+            </label>
+          </div>
         </fieldset>
 
         <label>
@@ -133,30 +150,32 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
           />
         </label>
 
-        <fieldset>
+        <fieldset className="segmented">
           <legend>Preferred Payment Method</legend>
-          <label>
-            <input
-              type="radio"
-              name="paymentMethod"
-              checked={form.paymentMethod === 'full'}
-              onChange={() => setForm({ ...form, paymentMethod: 'full' })}
-            />
-            Full Payment
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="paymentMethod"
-              checked={form.paymentMethod === 'installments'}
-              onChange={() => setForm({ ...form, paymentMethod: 'installments' })}
-            />
-            Installments
-          </label>
+          <div className="segmented__options">
+            <label className={`segmented__option ${form.paymentMethod === 'full' ? 'is-selected' : ''}`}>
+              <input
+                type="radio"
+                name="paymentMethod"
+                checked={form.paymentMethod === 'full'}
+                onChange={() => setForm({ ...form, paymentMethod: 'full' })}
+              />
+              Full Payment
+            </label>
+            <label className={`segmented__option ${form.paymentMethod === 'installments' ? 'is-selected' : ''}`}>
+              <input
+                type="radio"
+                name="paymentMethod"
+                checked={form.paymentMethod === 'installments'}
+                onChange={() => setForm({ ...form, paymentMethod: 'installments' })}
+              />
+              Installments
+            </label>
+          </div>
         </fieldset>
 
         <button type="submit" className="cta-button" disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'Submitting...' : 'Submit'}
+          {status === 'submitting' ? 'Submitting...' : 'Submit Registration'}
         </button>
       </form>
     </section>
