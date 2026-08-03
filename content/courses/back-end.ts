@@ -1,9 +1,8 @@
 import type { Course } from '@/lib/courses/types';
 
-// Real EDUZAH course. hero.image/gallery[].src intentionally omitted until
-// real photos exist at public/courses/back-end/ — CourseImage falls back to
-// the branded placeholder. Add once available, e.g.:
-// hero.image = { src: '/courses/back-end/hero.webp', alt: 'EDUZAH Back-End Web Development training' }
+// Real EDUZAH course. Gallery images are still placeholders until real
+// photos exist at public/courses/back-end/ — CourseImage falls back to the
+// branded placeholder for those.
 export const backEndCourse: Course = {
   id: 'back-end',
   slug: 'back-end',
@@ -13,12 +12,14 @@ export const backEndCourse: Course = {
     title: 'Back-End Web Development Diploma — EDUZAH',
     description:
       'Learn how to build secure, scalable server-side applications, databases and APIs through practical back-end development training.',
+    ogImage: '/courses/back-end/hero.png',
   },
   hero: {
     badge: 'Technology Program',
     headline: 'Back-End Web Development Diploma',
     subheadline:
       'Learn how to build secure, scalable server-side applications, databases and APIs through practical back-end development training.',
+    image: { src: '/courses/back-end/hero.png', alt: 'EDUZAH Back-End Web Development Diploma' },
   },
   quickInfo: {
     duration: '20 Weeks · 150 Hours',
