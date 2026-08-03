@@ -1,17 +1,19 @@
 /* ---------- Design tokens (EDUZAH brand) ---------- */
 :root {
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-navy: #0f172a;
-  --color-accent: #f97316;
-  --color-accent-dark: #ea580c;
+  --color-primary: #d91b5b;
+  --color-primary-dark: #b3134a;
+  --color-secondary: #672d86;
+  --color-secondary-dark: #4f2267;
+  --color-dark: #321d3d;
+  --color-accent: #faa633;
+  --color-accent-dark: #cc7e17;
   --color-white: #ffffff;
   --color-surface: #f8fafc;
   --color-border: #e2e8f0;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-on-navy: #f8fafc;
-  --color-on-navy-muted: #94a3b8;
+  --color-text: var(--color-dark);
+  --color-text-muted: #6b6470;
+  --color-on-dark: #f8fafc;
+  --color-on-dark-muted: #d8cfe0;
   --color-danger: #b00020;
 
   --font-sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', Tahoma, Arial, sans-serif;
@@ -54,7 +56,7 @@ body {
 h1,
 h2,
 h3 {
-  color: var(--color-navy);
+  color: var(--color-dark);
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -86,7 +88,7 @@ a {
 }
 
 .section > *,
-.hero,
+.hero-registration,
 .site-header__inner {
   max-width: var(--content-max-width);
   margin-inline: auto;
@@ -94,8 +96,8 @@ a {
 
 .badge {
   display: inline-block;
-  background: color-mix(in srgb, var(--color-primary) 12%, white);
-  color: var(--color-primary-dark);
+  background: color-mix(in srgb, var(--color-secondary) 12%, white);
+  color: var(--color-secondary-dark);
   font-weight: 700;
   font-size: 0.8125rem;
   padding-inline: 0.75rem;
@@ -105,7 +107,7 @@ a {
 }
 
 .badge--accent {
-  background: color-mix(in srgb, var(--color-accent) 14%, white);
+  background: color-mix(in srgb, var(--color-accent) 16%, white);
   color: var(--color-accent-dark);
 }
 
@@ -142,7 +144,7 @@ a {
 
 .cta-button--ghost {
   background: transparent;
-  color: var(--color-navy);
+  color: var(--color-dark);
   border: 1.5px solid var(--color-border);
 }
 
@@ -176,74 +178,60 @@ a {
   font-weight: 800;
   font-size: 1.125rem;
   letter-spacing: -0.01em;
-  color: var(--color-navy);
+  color: var(--color-dark);
 }
 
-/* ---------- Hero ---------- */
-.hero {
+/* ---------- Hero + registration (first section, form immediately visible) ---------- */
+.hero-registration {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   padding-inline: var(--section-padding-inline);
-  padding-block: 2.5rem;
+  padding-block: 2rem;
   border-block-end: 1px solid var(--color-border);
+  grid-template-areas:
+    'badge'
+    'headline'
+    'desc'
+    'media'
+    'form';
 }
 
-.hero__headline {
-  font-size: clamp(1.875rem, 1.5rem + 2vw, 3rem);
-  margin-block-end: 0.75rem;
+.hero-registration__badge {
+  grid-area: badge;
 }
 
-.hero__subheadline {
+.hero-registration__headline {
+  grid-area: headline;
+  font-size: clamp(1.625rem, 1.3rem + 1.6vw, 2.5rem);
+  margin-block-end: 0.5rem;
+}
+
+.hero-registration__desc {
+  grid-area: desc;
   font-size: 1.0625rem;
-  margin-block-end: 1.25rem;
   max-width: 34rem;
+  margin-block-end: 0.25rem;
 }
 
-.hero__trust {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
-  margin-block-end: 1.5rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--color-navy);
+.hero-registration__media {
+  grid-area: media;
 }
 
-.hero__trust li {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.hero__trust li::before {
-  content: '';
-  inline-size: 6px;
-  block-size: 6px;
-  border-radius: 999px;
-  background: var(--color-accent);
-  flex-shrink: 0;
-}
-
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.hero__visual {
-  order: -1;
+.hero-registration__form-wrap {
+  grid-area: form;
 }
 
 @media (min-width: 768px) {
-  .hero {
-    grid-template-columns: 1.05fr 0.95fr;
-    align-items: center;
-    padding-block: 4rem;
-  }
-
-  .hero__visual {
-    order: 0;
+  .hero-registration {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 2.5rem;
+    padding-block: 3rem;
+    grid-template-areas:
+      'media badge'
+      'media headline'
+      'media desc'
+      'media form';
   }
 }
 
@@ -254,11 +242,7 @@ a {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-navy);
-}
-
-.hero__visual .course-image {
-  aspect-ratio: 4 / 3;
+  background: var(--color-dark);
 }
 
 .course-image img {
@@ -277,8 +261,8 @@ a {
   position: absolute;
   inset-inline-start: 0.75rem;
   inset-block-end: 0.75rem;
-  background: color-mix(in srgb, var(--color-navy) 78%, transparent);
-  color: var(--color-on-navy);
+  background: color-mix(in srgb, var(--color-dark) 78%, transparent);
+  color: var(--color-on-dark);
   font-size: 0.75rem;
   font-weight: 600;
   padding-inline: 0.6rem;
@@ -303,7 +287,7 @@ a {
   align-items: center;
   gap: 0.5rem;
   font-weight: 600;
-  color: var(--color-navy);
+  color: var(--color-dark);
   font-size: 0.9375rem;
 }
 
@@ -328,7 +312,7 @@ a {
   align-items: flex-start;
   gap: 0.65rem;
   font-weight: 600;
-  color: var(--color-navy);
+  color: var(--color-dark);
 }
 
 .checklist__icon {
@@ -355,7 +339,7 @@ a {
 .accordion__item summary {
   cursor: pointer;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-dark);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -382,11 +366,11 @@ a {
 }
 
 .accordion__index {
-  color: var(--color-primary);
+  color: var(--color-secondary);
   font-size: 0.875rem;
 }
 
-/* ---------- Chips (Skills) ---------- */
+/* ---------- Chips (Skills / outcomes) ---------- */
 .chip-list {
   list-style: none;
   display: flex;
@@ -397,7 +381,7 @@ a {
 .chip {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  color: var(--color-navy);
+  color: var(--color-dark);
   font-weight: 600;
   font-size: 0.875rem;
   padding-inline: 0.9rem;
@@ -405,7 +389,7 @@ a {
   border-radius: 999px;
 }
 
-/* ---------- Career outcomes ---------- */
+/* ---------- Career outcomes (kept for future use, not in default template) ---------- */
 .outcome-list {
   list-style: none;
   display: grid;
@@ -418,7 +402,7 @@ a {
 }
 
 .outcome-list__item strong {
-  color: var(--color-navy);
+  color: var(--color-dark);
 }
 
 @media (min-width: 768px) {
@@ -428,14 +412,14 @@ a {
   }
 }
 
-/* ---------- Why EDUZAH (dark section) ---------- */
+/* ---------- Why EDUZAH (dark section, kept for future use) ---------- */
 .why-eduzah--dark {
-  background: var(--color-navy);
+  background: var(--color-dark);
   border-block-end: none;
 }
 
 .why-eduzah--dark h2 {
-  color: var(--color-on-navy);
+  color: var(--color-on-dark);
 }
 
 .reason-list {
@@ -460,13 +444,13 @@ a {
 }
 
 .reason-list__item strong {
-  color: var(--color-on-navy);
+  color: var(--color-on-dark);
   display: block;
   margin-block-end: 0.25rem;
 }
 
 .reason-list__item p {
-  color: var(--color-on-navy-muted);
+  color: var(--color-on-dark-muted);
 }
 
 /* ---------- Gallery ---------- */
@@ -488,7 +472,7 @@ a {
   }
 }
 
-/* ---------- Instructor ---------- */
+/* ---------- Instructor (kept for future use, not in default template) ---------- */
 .instructor__list {
   list-style: none;
   display: grid;
@@ -512,7 +496,7 @@ a {
 
 .instructor__role {
   display: block;
-  color: var(--color-primary-dark);
+  color: var(--color-secondary-dark);
   font-weight: 600;
   font-size: 0.875rem;
   margin-block: 0.15rem 0.4rem;
@@ -525,7 +509,7 @@ a {
   }
 }
 
-/* ---------- Testimonials & student projects ---------- */
+/* ---------- Testimonials & student projects (kept for future use) ---------- */
 .testimonials__list,
 .student-projects__list {
   list-style: none;
@@ -561,7 +545,7 @@ a {
 }
 
 .testimonials__item p {
-  color: var(--color-navy);
+  color: var(--color-dark);
   font-weight: 600;
   margin-block-end: 0.5rem;
 }
@@ -601,7 +585,7 @@ a {
 .pricing-card__current {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--color-navy);
+  color: var(--color-dark);
 }
 
 .pricing-card__installments {
@@ -609,11 +593,19 @@ a {
 }
 
 /* ---------- Registration form ---------- */
+.registration-form {
+  max-width: 26rem;
+}
+
+.registration-form__title {
+  font-size: 1.125rem;
+  margin-block-end: 1rem;
+}
+
 .registration-form form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  max-width: 32rem;
+  gap: 1rem;
 }
 
 .registration-form label {
@@ -621,7 +613,7 @@ a {
   flex-direction: column;
   gap: 0.4rem;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-dark);
 }
 
 .registration-form input[type='text'],
@@ -654,7 +646,7 @@ a {
 
 .registration-form legend {
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-dark);
   padding: 0;
   margin-block-end: 0.15rem;
 }
@@ -679,7 +671,7 @@ a {
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-sm);
   font-weight: 600;
-  color: var(--color-navy);
+  color: var(--color-dark);
   cursor: pointer;
   transition: border-color 0.15s ease, background-color 0.15s ease;
 }
@@ -697,7 +689,6 @@ a {
 }
 
 .registration-form__success {
-  max-width: 28rem;
   display: grid;
   justify-items: start;
   gap: 0.5rem;
@@ -712,7 +703,7 @@ a {
 
 /* ---------- Final CTA ---------- */
 .final-cta {
-  background: var(--color-navy);
+  background: var(--color-dark);
   text-align: center;
   border-block-end: none;
   display: grid;
@@ -721,7 +712,7 @@ a {
 }
 
 .final-cta h2 {
-  color: var(--color-on-navy);
+  color: var(--color-on-dark);
   max-width: 32rem;
 }
 

@@ -62,7 +62,7 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
 
   if (status === 'success') {
     return (
-      <section id="registration" className="section registration-form">
+      <div id="registration" className="registration-form">
         <div className="registration-form__success">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -77,13 +77,13 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
           <h2>You&apos;re registered!</h2>
           <p>Thank you — your registration has been received. Our team will contact you shortly.</p>
         </div>
-      </section>
+      </div>
     );
   }
 
   return (
-    <section id="registration" className="section registration-form">
-      <h2>Register Your Interest</h2>
+    <div id="registration" className="registration-form">
+      <h2 className="registration-form__title">Register Your Interest</h2>
       <form onSubmit={handleSubmit} noValidate>
         <label>
           Name
@@ -178,6 +178,6 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
           {status === 'submitting' ? 'Submitting...' : 'Submit Registration'}
         </button>
       </form>
-    </section>
+    </div>
   );
 }

@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllCourses } from '@/lib/courses/getAllCourses';
@@ -8,14 +7,8 @@ import { QuickInfo } from '@/components/course/QuickInfo';
 import { Audience } from '@/components/course/Audience';
 import { Curriculum } from '@/components/course/Curriculum';
 import { Skills } from '@/components/course/Skills';
-import { CareerOutcomes } from '@/components/course/CareerOutcomes';
 import { Gallery } from '@/components/course/Gallery';
-import { WhyEduzah } from '@/components/course/WhyEduzah';
-import { StudentProjects } from '@/components/course/StudentProjects';
-import { Testimonials } from '@/components/course/Testimonials';
-import { Instructor } from '@/components/course/Instructor';
 import { Pricing } from '@/components/course/Pricing';
-import { RegistrationForm } from '@/components/course/RegistrationForm';
 import { FAQSection } from '@/components/course/FAQSection';
 import { FinalCTA } from '@/components/course/FinalCTA';
 import { StickyMobileCTA } from '@/components/course/StickyMobileCTA';
@@ -51,6 +44,11 @@ export async function generateMetadata({
   };
 }
 
+// Section order is the approved Step 3.1 conversion-focused structure.
+// Instructor/Testimonials/StudentProjects/CareerOutcomes/WhyEduzah remain
+// supported by the Course data model and their components still exist,
+// but are intentionally not part of the default template — a future
+// course can opt back in by rendering them here when real data warrants it.
 export default async function CoursePage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const course = getCourseBySlug(slug);
@@ -66,16 +64,8 @@ export default async function CoursePage({ params }: { params: Promise<Params> }
       <Audience audience={course.audience} />
       <Curriculum curriculum={course.curriculum} />
       <Skills skills={course.skills} />
-      <CareerOutcomes careerOutcomes={course.careerOutcomes} />
       <Gallery gallery={course.gallery} />
-      <WhyEduzah whyEduzah={course.whyEduzah} />
-      <StudentProjects studentProjects={course.studentProjects} />
-      <Testimonials testimonials={course.testimonials} />
-      <Instructor instructors={course.instructors} />
       <Pricing pricing={course.pricing} />
-      <Suspense fallback={null}>
-        <RegistrationForm courseId={course.id} courseSlug={course.slug} />
-      </Suspense>
       <FAQSection faq={course.faq} />
       <FinalCTA finalCta={course.finalCta} />
       <StickyMobileCTA />

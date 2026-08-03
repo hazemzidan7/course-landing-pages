@@ -1,44 +1,28 @@
+import { Suspense } from 'react';
 import type { Course } from '@/lib/courses/types';
 import { CourseImage } from '@/components/ui/CourseImage';
+import { RegistrationForm } from '@/components/course/RegistrationForm';
 
+// Registration is the primary conversion action for paid-ad traffic, so the
+// form is part of this first section rather than a separate section further
+// down the page. Grid areas (see globals.css) reorder content per
+// breakpoint: mobile is name -> description -> image -> form; desktop is a
+// two-column image | content+form layout.
 export function Hero({ course }: { course: Course }) {
-  const { hero, quickInfo, curriculum } = course;
-
-  const trustPoints = [
-    quickInfo?.duration,
-    quickInfo?.level,
-    quickInfo?.certificate ? 'Certificate included' : undefined,
-  ].filter((point): point is string => Boolean(point));
+  const { hero } = course;
 
   return (
-    <section className="hero">
-      <div className="hero__content">
-        {hero.badge && <span className="badge">{hero.badge}</span>}
-        <h1 className="hero__headline">{hero.headline}</h1>
-        {hero.subheadline && <p className="hero__subheadline">{hero.subheadline}</p>}
-
-        {trustPoints.length > 0 && (
-          <ul className="hero__trust">
-            {trustPoints.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-        )}
-
-        <div className="hero__actions">
-          <a className="cta-button" href="#registration">
-            Register Now
-          </a>
-          {curriculum && curriculum.length > 0 && (
-            <a className="cta-button cta-button--ghost" href="#curriculum">
-              View Curriculum
-            </a>
-          )}
-        </div>
-      </div>
-
-      <div className="hero__visual">
+    <section className="hero-registration">
+      {hero.badge && <span className="badge hero-registration__badge">{hero.badge}</span>}
+      <h1 className="hero-registration__headline">{hero.headline}</h1>
+      {hero.subheadline && <p className="hero-registration__desc">{hero.subheadline}</p>}
+      <div className="hero-registration__media">
         <CourseImage image={hero.image} placeholderLabel="Hero image" priority sizes="(max-width: 767px) 100vw, 50vw" />
+      </div>
+      <div className="hero-registration__form-wrap">
+        <Suspense fallback={null}>
+          <RegistrationForm courseId={course.id} courseSlug={course.slug} />
+        </Suspense>
       </div>
     </section>
   );

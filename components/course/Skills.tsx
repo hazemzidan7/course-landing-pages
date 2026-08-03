@@ -3,7 +3,7 @@ export function Skills({ skills }: { skills?: string[] }) {
 
   return (
     <section className="section skills">
-      <h2>Skills You&apos;ll Gain</h2>
+      <h2>What You&apos;ll Be Able To Do</h2>
       <ul className="chip-list">
         {skills.map((skill) => (
           <li key={skill} className="chip">

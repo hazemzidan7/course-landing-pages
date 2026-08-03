@@ -8,6 +8,8 @@ export interface CourseMeta {
   ogImage?: string;
 }
 
+// src is a path under public/courses/{slug}/ (e.g. /courses/data-analysis/hero.webp).
+// Not every course needs every image — omit the field until a real photo exists.
 export interface CourseImageRef {
   src: string;
   alt: string;
