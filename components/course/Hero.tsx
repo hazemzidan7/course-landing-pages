@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import type { Course } from '@/lib/courses/types';
+import type { Dictionary } from '@/lib/i18n/types';
 import { CourseImage } from '@/components/ui/CourseImage';
 import { RegistrationForm } from '@/components/course/RegistrationForm';
 import { Pricing } from '@/components/course/Pricing';
@@ -14,18 +15,24 @@ import { Pricing } from '@/components/course/Pricing';
 // form -> pricing; desktop is a two-column (image+pricing) | (content+form)
 // layout, using display:contents wrappers so the two column groups don't
 // interfere with the mobile ordering.
-export function Hero({ course }: { course: Course }) {
+export function Hero({ course, dict }: { course: Course; dict: Dictionary }) {
   const { hero } = course;
 
   return (
     <section className="hero-registration">
       <div className="hero-registration__left">
         <div className="hero-registration__media">
-          <CourseImage image={hero.image} placeholderLabel="Hero image" priority sizes="(max-width: 767px) 100vw, 50vw" />
+          <CourseImage
+            image={hero.image}
+            placeholderLabel="Hero image"
+            placeholderPrefix={dict.courseImage.placeholder}
+            priority
+            sizes="(max-width: 767px) 100vw, 50vw"
+          />
         </div>
         {course.pricing && (
           <div className="hero-registration__pricing">
-            <Pricing pricing={course.pricing} />
+            <Pricing pricing={course.pricing} dict={dict} />
           </div>
         )}
       </div>
@@ -35,7 +42,7 @@ export function Hero({ course }: { course: Course }) {
         {hero.subheadline && <p className="hero-registration__desc">{hero.subheadline}</p>}
         <div className="hero-registration__form-wrap">
           <Suspense fallback={null}>
-            <RegistrationForm courseId={course.id} courseSlug={course.slug} />
+            <RegistrationForm courseId={course.id} courseSlug={course.slug} dict={dict} />
           </Suspense>
         </div>
       </div>

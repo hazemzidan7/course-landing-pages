@@ -1,11 +1,12 @@
 import type { CourseOutcome } from '@/lib/courses/types';
+import type { Dictionary } from '@/lib/i18n/types';
 
-export function Curriculum({ curriculum }: { curriculum?: CourseOutcome[] }) {
+export function Curriculum({ curriculum, dict }: { curriculum?: CourseOutcome[]; dict: Dictionary }) {
   if (!curriculum || curriculum.length === 0) return null;
 
   return (
     <section className="section curriculum" id="curriculum">
-      <h2>What Will You Learn?</h2>
+      <h2>{dict.sections.curriculum}</h2>
       <div className="accordion">
         {curriculum.map((item, index) => (
           <details key={item.title} className="accordion__item" open={index === 0}>

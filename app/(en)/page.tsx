@@ -1,14 +1,16 @@
 import Link from 'next/link';
 import { getAllCourses } from '@/lib/courses/getAllCourses';
+import { getDictionary } from '@/lib/i18n/getDictionary';
 
 export default function Home() {
   const courses = getAllCourses();
+  const dict = getDictionary('en');
 
   return (
     <main>
       <section className="section home-intro">
-        <h1>EDUZAH Programs</h1>
-        <p>Hands-on technology diplomas designed around real job-market skills. Pick a program to see the full details and register.</p>
+        <h1>{dict.home.title}</h1>
+        <p>{dict.home.tagline}</p>
       </section>
 
       <section className="section">
@@ -19,7 +21,7 @@ export default function Home() {
               <h2 className="course-card__title">{course.hero.headline}</h2>
               {course.hero.subheadline && <p className="course-card__desc">{course.hero.subheadline}</p>}
               {course.quickInfo?.duration && <span className="course-card__meta">{course.quickInfo.duration}</span>}
-              <span className="course-card__cta">View Course →</span>
+              <span className="course-card__cta">{dict.home.viewCourse}</span>
             </Link>
           ))}
         </div>

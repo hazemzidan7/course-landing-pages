@@ -183,6 +183,20 @@ a {
   color: var(--color-dark);
 }
 
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-header__lang {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-secondary-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* ---------- Hero + registration (first section, form immediately visible) ---------- */
 /* Mobile: .hero-registration__left/__right are display:contents, so their
    children (media/pricing, badge/headline/desc/form) act as flat grid

@@ -1,0 +1,55 @@
+import type { Dictionary } from '@/lib/i18n/types';
+
+export const en: Dictionary = {
+  header: {
+    registerNow: 'Register Now',
+    switchTo: 'العربية',
+  },
+  hero: {
+    registerNow: 'Register Now',
+    viewCurriculum: 'View Curriculum',
+  },
+  registrationForm: {
+    title: 'Register Your Interest',
+    name: 'Name',
+    phone: 'Phone / WhatsApp',
+    email: 'Email (optional)',
+    attendance: 'Attendance Preference',
+    online: 'Online',
+    offline: 'Offline',
+    governorate: 'Governorate',
+    paymentMethod: 'Preferred Payment Method',
+    full: 'Full Payment',
+    installments: 'Installments',
+    submit: 'Submit Registration',
+    submitting: 'Submitting...',
+    nameRequired: 'Name is required.',
+    phoneRequired: 'Phone / WhatsApp number is required.',
+    successTitle: "You're registered!",
+    successBody: 'Thank you — your registration has been received. Our team will contact you shortly.',
+  },
+  sections: {
+    audience: 'Who Is This Course For?',
+    curriculum: 'What Will You Learn?',
+    skills: "What You'll Be Able To Do",
+    gallery: 'Real Training Experience',
+    pricing: 'Pricing',
+    faq: 'Frequently Asked Questions',
+  },
+  pricing: {
+    or: 'Or',
+    installmentsOf: 'installments of',
+    registerNow: 'Register Now',
+  },
+  stickyMobileCta: {
+    registerNow: 'Register Now',
+  },
+  home: {
+    title: 'EDUZAH Programs',
+    tagline: 'Hands-on technology diplomas designed around real job-market skills. Pick a program to see the full details and register.',
+    viewCourse: 'View Course →',
+  },
+  courseImage: {
+    placeholder: 'Photo placeholder',
+  },
+};

@@ -5,10 +5,12 @@ import { useSearchParams } from 'next/navigation';
 import { submitLead } from '@/lib/leads/submitLead';
 import { getTrackingParams } from '@/lib/tracking/utm';
 import type { AttendancePreference, PaymentPreference } from '@/lib/leads/types';
+import type { Dictionary } from '@/lib/i18n/types';
 
 interface RegistrationFormProps {
   courseId: string;
   courseSlug: string;
+  dict: Dictionary;
 }
 
 interface FormState {
@@ -29,7 +31,8 @@ const initialState: FormState = {
   paymentMethod: 'full',
 };
 
-export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps) {
+export function RegistrationForm({ courseId, courseSlug, dict }: RegistrationFormProps) {
+  const t = dict.registrationForm;
   const searchParams = useSearchParams();
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
@@ -37,8 +40,8 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
 
   function validate(values: FormState) {
     const nextErrors: Partial<Record<keyof FormState, string>> = {};
-    if (!values.name.trim()) nextErrors.name = 'Name is required.';
-    if (!values.phone.trim()) nextErrors.phone = 'Phone / WhatsApp number is required.';
+    if (!values.name.trim()) nextErrors.name = t.nameRequired;
+    if (!values.phone.trim()) nextErrors.phone = t.phoneRequired;
     return nextErrors;
   }
 
@@ -74,8 +77,8 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
               strokeLinejoin="round"
             />
           </svg>
-          <h2>You&apos;re registered!</h2>
-          <p>Thank you — your registration has been received. Our team will contact you shortly.</p>
+          <h2>{t.successTitle}</h2>
+          <p>{t.successBody}</p>
         </div>
       </div>
     );
@@ -83,10 +86,10 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
 
   return (
     <div id="registration" className="registration-form">
-      <h2 className="registration-form__title">Register Your Interest</h2>
+      <h2 className="registration-form__title">{t.title}</h2>
       <form onSubmit={handleSubmit} noValidate>
         <label>
-          Name
+          {t.name}
           <input
             type="text"
             value={form.name}
@@ -97,7 +100,7 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
         </label>
 
         <label>
-          Phone / WhatsApp
+          {t.phone}
           <input
             type="tel"
             inputMode="tel"
@@ -109,7 +112,7 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
         </label>
 
         <label>
-          Email (optional)
+          {t.email}
           <input
             type="email"
             value={form.email}
@@ -118,7 +121,7 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
         </label>
 
         <fieldset className="segmented">
-          <legend>Attendance Preference</legend>
+          <legend>{t.attendance}</legend>
           <div className="segmented__options">
             <label className={`segmented__option ${form.attendance === 'online' ? 'is-selected' : ''}`}>
               <input
@@ -127,7 +130,7 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
                 checked={form.attendance === 'online'}
                 onChange={() => setForm({ ...form, attendance: 'online' })}
               />
-              Online
+              {t.online}
             </label>
             <label className={`segmented__option ${form.attendance === 'offline' ? 'is-selected' : ''}`}>
               <input
@@ -136,13 +139,13 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
                 checked={form.attendance === 'offline'}
                 onChange={() => setForm({ ...form, attendance: 'offline' })}
               />
-              Offline
+              {t.offline}
             </label>
           </div>
         </fieldset>
 
         <label>
-          Governorate
+          {t.governorate}
           <input
             type="text"
             value={form.governorate}
@@ -151,7 +154,7 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
         </label>
 
         <fieldset className="segmented">
-          <legend>Preferred Payment Method</legend>
+          <legend>{t.paymentMethod}</legend>
           <div className="segmented__options">
             <label className={`segmented__option ${form.paymentMethod === 'full' ? 'is-selected' : ''}`}>
               <input
@@ -160,7 +163,7 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
                 checked={form.paymentMethod === 'full'}
                 onChange={() => setForm({ ...form, paymentMethod: 'full' })}
               />
-              Full Payment
+              {t.full}
             </label>
             <label className={`segmented__option ${form.paymentMethod === 'installments' ? 'is-selected' : ''}`}>
               <input
@@ -169,13 +172,13 @@ export function RegistrationForm({ courseId, courseSlug }: RegistrationFormProps
                 checked={form.paymentMethod === 'installments'}
                 onChange={() => setForm({ ...form, paymentMethod: 'installments' })}
               />
-              Installments
+              {t.installments}
             </label>
           </div>
         </fieldset>
 
         <button type="submit" className="cta-button" disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'Submitting...' : 'Submit Registration'}
+          {status === 'submitting' ? t.submitting : t.submit}
         </button>
       </form>
     </div>

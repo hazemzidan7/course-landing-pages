@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
-import { Header } from '@/components/layout/Header';
 import './globals.css';
 
 const manrope = Manrope({
@@ -17,17 +16,19 @@ export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
 };
 
-// lang/dir are hardcoded for English/LTR in Step 3. Bilingual (ar/RTL)
-// support is architecture-ready: styles use logical properties and a
-// swappable --font-sans variable, so this becomes locale-driven once
-// bilingual scope is approved.
+// This is the single, true root layout (Next.js only allows one <html>/
+// <body> declaration). It stays locale-neutral: the default English tree
+// (route group app/(en)/) and the Arabic tree (app/ar/) each render their
+// own <Header> with the right dict/locale, and app/ar/layout.tsx wraps its
+// children in a dir="rtl" lang="ar" container. Known trade-off: this
+// outer <html> keeps saying lang="en" even under /ar — fully correct
+// per-request <html lang>/dir requires nesting the whole app under an
+// app/[lang]/ root, which is a bigger restructuring reserved for once
+// real Arabic content (not just UI chrome) is ready.
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" dir="ltr" className={manrope.variable}>
-      <body>
-        <Header />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

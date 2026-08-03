@@ -1,9 +1,11 @@
-export function Audience({ audience }: { audience?: string[] }) {
+import type { Dictionary } from '@/lib/i18n/types';
+
+export function Audience({ audience, dict }: { audience?: string[]; dict: Dictionary }) {
   if (!audience || audience.length === 0) return null;
 
   return (
     <section className="section audience">
-      <h2>Who Is This Course For?</h2>
+      <h2>{dict.sections.audience}</h2>
       <ul className="checklist">
         {audience.map((point) => (
           <li key={point} className="checklist__item">

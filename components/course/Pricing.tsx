@@ -1,11 +1,12 @@
 import type { CoursePricing } from '@/lib/courses/types';
+import type { Dictionary } from '@/lib/i18n/types';
 
-export function Pricing({ pricing }: { pricing?: CoursePricing }) {
+export function Pricing({ pricing, dict }: { pricing?: CoursePricing; dict: Dictionary }) {
   if (!pricing) return null;
 
   return (
     <div className="pricing">
-      <h2 className="pricing__title">Pricing</h2>
+      <h2 className="pricing__title">{dict.sections.pricing}</h2>
       <div className="pricing-card">
         {pricing.currentOffer && <span className="badge badge--accent">{pricing.currentOffer.label}</span>}
 
@@ -25,12 +26,12 @@ export function Pricing({ pricing }: { pricing?: CoursePricing }) {
 
         {pricing.installmentCount && pricing.installmentAmount && (
           <p className="pricing-card__installments">
-            Or {pricing.installmentCount} installments of {pricing.installmentAmount} {pricing.currency}
+            {dict.pricing.or} {pricing.installmentCount} {dict.pricing.installmentsOf} {pricing.installmentAmount} {pricing.currency}
           </p>
         )}
 
         <a className="cta-button" href="#registration">
-          Register Now
+          {dict.pricing.registerNow}
         </a>
       </div>
     </div>

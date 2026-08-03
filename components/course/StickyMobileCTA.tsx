@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import type { Dictionary } from '@/lib/i18n/types';
 
-export function StickyMobileCTA() {
+export function StickyMobileCTA({ dict }: { dict: Dictionary }) {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ export function StickyMobileCTA() {
   return (
     <div className={`sticky-mobile-cta ${hidden ? 'is-hidden' : ''}`} aria-hidden={hidden}>
       <a className="cta-button" href="#registration">
-        Register Now
+        {dict.stickyMobileCta.registerNow}
       </a>
     </div>
   );

@@ -4,6 +4,7 @@ import type { CourseImageRef } from '@/lib/courses/types';
 interface CourseImageProps {
   image?: CourseImageRef;
   placeholderLabel: string;
+  placeholderPrefix?: string;
   priority?: boolean;
   sizes?: string;
 }
@@ -12,7 +13,7 @@ interface CourseImageProps {
 // one. Until then, shows a clearly marked local placeholder so no stock or
 // fake photography is used. Swap in a real `image` on the Course object —
 // no component changes needed.
-export function CourseImage({ image, placeholderLabel, priority, sizes }: CourseImageProps) {
+export function CourseImage({ image, placeholderLabel, placeholderPrefix = 'Photo placeholder', priority, sizes }: CourseImageProps) {
   if (image) {
     return (
       <div className="course-image">
@@ -32,7 +33,9 @@ export function CourseImage({ image, placeholderLabel, priority, sizes }: Course
     <div className="course-image course-image--placeholder">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/images/placeholder.svg" alt="" aria-hidden="true" />
-      <span className="course-image__badge">Photo placeholder — {placeholderLabel}</span>
+      <span className="course-image__badge">
+        {placeholderPrefix} — {placeholderLabel}
+      </span>
     </div>
   );
 }
