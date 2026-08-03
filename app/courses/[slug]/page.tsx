@@ -8,7 +8,6 @@ import { Audience } from '@/components/course/Audience';
 import { Curriculum } from '@/components/course/Curriculum';
 import { Skills } from '@/components/course/Skills';
 import { Gallery } from '@/components/course/Gallery';
-import { Pricing } from '@/components/course/Pricing';
 import { FAQSection } from '@/components/course/FAQSection';
 import { FinalCTA } from '@/components/course/FinalCTA';
 import { StickyMobileCTA } from '@/components/course/StickyMobileCTA';
@@ -44,11 +43,13 @@ export async function generateMetadata({
   };
 }
 
-// Section order is the approved Step 3.1 conversion-focused structure.
-// Instructor/Testimonials/StudentProjects/CareerOutcomes/WhyEduzah remain
-// supported by the Course data model and their components still exist,
-// but are intentionally not part of the default template — a future
-// course can opt back in by rendering them here when real data warrants it.
+// Section order is the approved Step 3.3 conversion-focused structure.
+// Pricing now renders once, inside Hero's left column beside the image —
+// it is intentionally not repeated here. Instructor/Testimonials/
+// StudentProjects/CareerOutcomes/WhyEduzah remain supported by the Course
+// data model and their components still exist, but are intentionally not
+// part of the default template — a future course can opt back in by
+// rendering them here when real data warrants it.
 export default async function CoursePage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const course = getCourseBySlug(slug);
@@ -65,7 +66,6 @@ export default async function CoursePage({ params }: { params: Promise<Params> }
       <Curriculum curriculum={course.curriculum} />
       <Skills skills={course.skills} />
       <Gallery gallery={course.gallery} />
-      <Pricing pricing={course.pricing} />
       <FAQSection faq={course.faq} />
       <FinalCTA finalCta={course.finalCta} />
       <StickyMobileCTA />

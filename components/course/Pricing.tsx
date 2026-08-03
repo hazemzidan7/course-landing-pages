@@ -4,8 +4,8 @@ export function Pricing({ pricing }: { pricing?: CoursePricing }) {
   if (!pricing) return null;
 
   return (
-    <section className="section pricing">
-      <h2>Pricing</h2>
+    <div className="pricing">
+      <h2 className="pricing__title">Pricing</h2>
       <div className="pricing-card">
         {pricing.currentOffer && <span className="badge badge--accent">{pricing.currentOffer.label}</span>}
 
@@ -33,6 +33,6 @@ export function Pricing({ pricing }: { pricing?: CoursePricing }) {
           Register Now
         </a>
       </div>
-    </section>
+    </div>
   );
 }
