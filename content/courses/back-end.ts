@@ -25,6 +25,9 @@ export const backEndCourse: Course = {
     duration: '20 Weeks · 150 Hours',
     format: 'Online / Offline',
     language: 'English',
+    sessionsPerWeek: '2 Sessions/Week',
+    practicalProjects: true,
+    certificate: true,
   },
   // Curriculum covers two distinct tracks (PHP/Laravel and .NET/C#) as
   // given in the source — kept as separate modules rather than merged,

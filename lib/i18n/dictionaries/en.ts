@@ -52,4 +52,8 @@ export const en: Dictionary = {
   courseImage: {
     placeholder: 'Photo placeholder',
   },
+  quickInfo: {
+    certificateIncluded: 'Certificate included',
+    practicalProjects: 'Practical Projects',
+  },
 };

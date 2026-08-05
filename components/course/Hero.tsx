@@ -4,15 +4,17 @@ import type { Dictionary } from '@/lib/i18n/types';
 import { CourseImage } from '@/components/ui/CourseImage';
 import { RegistrationForm } from '@/components/course/RegistrationForm';
 import { Pricing } from '@/components/course/Pricing';
+import { QuickInfo } from '@/components/course/QuickInfo';
 
 // Registration is the primary conversion action for paid-ad traffic, so the
 // form is part of this first section rather than a separate section further
-// down the page. Pricing lives here too, under the image, so the left
-// column (shorter than the form) isn't wasted whitespace; it still comes
-// from the same Course.pricing data as everywhere else, just placed here
-// instead of as a separate page section. Grid areas (see globals.css)
+// down the page. QuickInfo and Pricing live here too, under the image, so
+// the left column (shorter than the form) isn't wasted whitespace; they
+// still come from the same Course data as everywhere else, just placed
+// here instead of as separate page sections. Grid areas (see globals.css)
 // reorder content per breakpoint: mobile is name -> description -> image ->
-// form -> pricing; desktop is a two-column (image+pricing) | (content+form)
+// quick info -> form -> pricing (registration stays earlier than pricing);
+// desktop is a two-column (image+quickinfo+pricing) | (content+form)
 // layout, using display:contents wrappers so the two column groups don't
 // interfere with the mobile ordering.
 export function Hero({ course, dict }: { course: Course; dict: Dictionary }) {
@@ -29,6 +31,9 @@ export function Hero({ course, dict }: { course: Course; dict: Dictionary }) {
             priority
             sizes="(max-width: 767px) 100vw, 50vw"
           />
+        </div>
+        <div className="hero-registration__quickinfo">
+          <QuickInfo quickInfo={course.quickInfo} dict={dict} />
         </div>
         {course.pricing && (
           <div className="hero-registration__pricing">

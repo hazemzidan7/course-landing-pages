@@ -52,4 +52,8 @@ export interface Dictionary {
   courseImage: {
     placeholder: string;
   };
+  quickInfo: {
+    certificateIncluded: string;
+    practicalProjects: string;
+  };
 }

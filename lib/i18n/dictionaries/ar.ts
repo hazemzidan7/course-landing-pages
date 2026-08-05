@@ -56,4 +56,8 @@ export const ar: Dictionary = {
   courseImage: {
     placeholder: 'صورة توضيحية مؤقتة',
   },
+  quickInfo: {
+    certificateIncluded: 'شهادة معتمدة',
+    practicalProjects: 'مشاريع تطبيقية',
+  },
 };

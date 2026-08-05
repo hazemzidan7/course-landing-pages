@@ -27,6 +27,8 @@ export interface CourseQuickInfo {
   format?: string;
   level?: string;
   language?: string;
+  sessionsPerWeek?: string;
+  practicalProjects?: boolean;
   certificate?: boolean;
 }
 

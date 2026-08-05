@@ -4,7 +4,6 @@ import { getAllCourses } from '@/lib/courses/getAllCourses';
 import { getCourseBySlug } from '@/lib/courses/getCourseBySlug';
 import { getDictionary } from '@/lib/i18n/getDictionary';
 import { Hero } from '@/components/course/Hero';
-import { QuickInfo } from '@/components/course/QuickInfo';
 import { Audience } from '@/components/course/Audience';
 import { Curriculum } from '@/components/course/Curriculum';
 import { Skills } from '@/components/course/Skills';
@@ -66,7 +65,6 @@ export default async function ArabicCoursePage({ params }: { params: Promise<Par
   return (
     <main>
       <Hero course={course} dict={dict} />
-      <QuickInfo quickInfo={course.quickInfo} />
       <Audience audience={course.audience} dict={dict} />
       <Curriculum curriculum={course.curriculum} dict={dict} />
       <Skills skills={course.skills} dict={dict} />

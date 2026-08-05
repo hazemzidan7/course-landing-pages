@@ -215,6 +215,7 @@ a {
     'headline'
     'desc'
     'media'
+    'quickinfo'
     'form'
     'pricing';
 }
@@ -246,6 +247,10 @@ a {
 
 .hero-registration__media {
   grid-area: media;
+}
+
+.hero-registration__quickinfo {
+  grid-area: quickinfo;
 }
 
 .hero-registration__pricing {
@@ -318,30 +323,33 @@ a {
   border-radius: var(--radius-sm);
 }
 
-/* ---------- Quick info strip ---------- */
-.quick-info {
-  padding-block: 1.25rem;
+/* ---------- Quick info card (hero left column, under the image) ---------- */
+.quick-info-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
 }
 
-.quick-info__list {
+.quick-info-card__list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
+  gap: 0.5rem 1.1rem;
 }
 
-.quick-info__item {
+.quick-info-card__item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   font-weight: 600;
   color: var(--color-dark);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
-.quick-info__dot {
-  inline-size: 6px;
-  block-size: 6px;
+.quick-info-card__dot {
+  inline-size: 5px;
+  block-size: 5px;
   border-radius: 999px;
   background: var(--color-primary);
   flex-shrink: 0;
