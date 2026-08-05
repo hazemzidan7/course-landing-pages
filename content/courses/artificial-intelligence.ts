@@ -1,9 +1,8 @@
 import type { Course } from '@/lib/courses/types';
 
-// Real EDUZAH course. hero.image/gallery[].src intentionally omitted until
-// real photos exist at public/courses/artificial-intelligence/ — CourseImage
-// falls back to the branded placeholder. Add once available, e.g.:
-// hero.image = { src: '/courses/artificial-intelligence/hero.webp', alt: 'EDUZAH Artificial Intelligence training' }
+// Real EDUZAH course. Gallery images are still placeholders until real
+// photos exist at public/courses/artificial-intelligence/ — CourseImage
+// falls back to the branded placeholder for those.
 export const artificialIntelligenceCourse: Course = {
   id: 'artificial-intelligence',
   slug: 'artificial-intelligence',
@@ -13,12 +12,14 @@ export const artificialIntelligenceCourse: Course = {
     title: 'Artificial Intelligence Diploma — EDUZAH',
     description:
       'Build practical foundations in Artificial Intelligence, Machine Learning, and modern AI technologies through hands-on training and real-world applications.',
+    ogImage: '/courses/artificial-intelligence/hero.png',
   },
   hero: {
     badge: 'Technology Program',
     headline: 'Artificial Intelligence Diploma',
     subheadline:
       'Build practical foundations in Artificial Intelligence, Machine Learning, and modern AI technologies through hands-on training and real-world applications.',
+    image: { src: '/courses/artificial-intelligence/hero.png', alt: 'EDUZAH Artificial Intelligence Diploma' },
   },
   quickInfo: {
     duration: '20 Weeks · 140 Hours',

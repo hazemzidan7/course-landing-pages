@@ -1,9 +1,8 @@
 import type { Course } from '@/lib/courses/types';
 
-// Real EDUZAH course. hero.image/gallery[].src intentionally omitted until
-// real photos exist at public/courses/cybersecurity/ — CourseImage falls
-// back to the branded placeholder. Add once available, e.g.:
-// hero.image = { src: '/courses/cybersecurity/hero.webp', alt: 'EDUZAH Cyber Security training' }
+// Real EDUZAH course. Gallery images are still placeholders until real
+// photos exist at public/courses/cybersecurity/ — CourseImage falls back
+// to the branded placeholder for those.
 //
 // IMPORTANT — MISSING DATA: the task referenced "the EDUZAH Cyber Security
 // source document" for the curriculum, but no source PDF/document or topic
@@ -19,12 +18,14 @@ export const cybersecurityCourse: Course = {
   meta: {
     title: 'Cyber Security Diploma — EDUZAH',
     description: 'Develop practical cybersecurity skills and learn how modern systems, networks and applications are protected and assessed.',
+    ogImage: '/courses/cybersecurity/hero.png',
   },
   hero: {
     badge: 'Technology Program',
     headline: 'Cyber Security Diploma',
     subheadline:
       'Develop practical cybersecurity skills and learn how modern systems, networks and applications are protected and assessed.',
+    image: { src: '/courses/cybersecurity/hero.png', alt: 'EDUZAH Cyber Security Diploma' },
   },
   quickInfo: {
     duration: '20 Weeks · 150 Hours',

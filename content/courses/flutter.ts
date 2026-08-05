@@ -1,9 +1,8 @@
 import type { Course } from '@/lib/courses/types';
 
-// Real EDUZAH course. hero.image/gallery[].src intentionally omitted until
-// real photos exist at public/courses/flutter/ — CourseImage falls back to
-// the branded placeholder. Add once available, e.g.:
-// hero.image = { src: '/courses/flutter/hero.webp', alt: 'EDUZAH Flutter Mobile Development training' }
+// Real EDUZAH course. Gallery images are still placeholders until real
+// photos exist at public/courses/flutter/ — CourseImage falls back to the
+// branded placeholder for those.
 //
 // IMPORTANT — MISSING DATA: the task referenced "the exact Flutter/Dart
 // curriculum contained in the EDUZAH source document", but no source
@@ -19,12 +18,14 @@ export const flutterCourse: Course = {
   meta: {
     title: 'Flutter Mobile Development Diploma — EDUZAH',
     description: 'Learn to build modern cross-platform mobile applications with Flutter through hands-on development and practical projects.',
+    ogImage: '/courses/flutter/hero.png',
   },
   hero: {
     badge: 'Technology Program',
     headline: 'Flutter Mobile Development Diploma',
     subheadline:
       'Learn to build modern cross-platform mobile applications with Flutter through hands-on development and practical projects.',
+    image: { src: '/courses/flutter/hero.png', alt: 'EDUZAH Flutter Mobile Development Diploma' },
   },
   quickInfo: {
     duration: '20 Weeks · 140 Hours',

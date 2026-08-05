@@ -1,9 +1,8 @@
 import type { Course } from '@/lib/courses/types';
 
-// Real EDUZAH course. hero.image/gallery[].src intentionally omitted until
-// real photos exist at public/courses/data-analysis/ — CourseImage falls
-// back to the branded placeholder. Add once available, e.g.:
-// hero.image = { src: '/courses/data-analysis/hero.webp', alt: 'EDUZAH Data Analysis training' }
+// Real EDUZAH course. Gallery images are still placeholders until real
+// photos exist at public/courses/data-analysis/ — CourseImage falls back
+// to the branded placeholder for those.
 export const dataAnalysisCourse: Course = {
   id: 'data-analysis',
   slug: 'data-analysis',
@@ -12,12 +11,14 @@ export const dataAnalysisCourse: Course = {
   meta: {
     title: 'Data Analysis Diploma — EDUZAH',
     description: 'Learn how to transform raw data into meaningful insights using industry-standard analysis, visualization and reporting tools.',
+    ogImage: '/courses/data-analysis/hero.png',
   },
   hero: {
     badge: 'Technology Program',
     headline: 'Data Analysis Diploma',
     subheadline:
       'Learn how to transform raw data into meaningful insights using industry-standard analysis, visualization and reporting tools.',
+    image: { src: '/courses/data-analysis/hero.png', alt: 'EDUZAH Data Analysis Diploma' },
   },
   quickInfo: {
     duration: '20 Weeks · 150 Hours',

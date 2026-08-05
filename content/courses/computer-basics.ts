@@ -1,9 +1,8 @@
 import type { Course } from '@/lib/courses/types';
 
-// Real EDUZAH course. hero.image/gallery[].src intentionally omitted until
-// real photos exist at public/courses/computer-basics/ — CourseImage falls
-// back to the branded placeholder. Add once available, e.g.:
-// hero.image = { src: '/courses/computer-basics/hero.webp', alt: 'EDUZAH Computer Basics training' }
+// Real EDUZAH course. Gallery images are still placeholders until real
+// photos exist at public/courses/computer-basics/ — CourseImage falls back
+// to the branded placeholder for those.
 // Note: the source document's Microsoft Office module content was
 // referenced but not supplied in detail, so it is omitted rather than
 // invented — only the given practical-application topics are included.
@@ -15,11 +14,13 @@ export const computerBasicsCourse: Course = {
   meta: {
     title: 'Computer Basics Course — EDUZAH',
     description: 'Build the essential computer and digital skills needed for study, work and everyday professional use.',
+    ogImage: '/courses/computer-basics/hero.png',
   },
   hero: {
     badge: 'Technology Program',
     headline: 'Computer Basics Course',
     subheadline: 'Build the essential computer and digital skills needed for study, work and everyday professional use.',
+    image: { src: '/courses/computer-basics/hero.png', alt: 'EDUZAH Computer Basics Course' },
   },
   quickInfo: {
     duration: '12 Weeks · 50 Hours',

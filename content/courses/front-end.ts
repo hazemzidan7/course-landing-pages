@@ -1,9 +1,8 @@
 import type { Course } from '@/lib/courses/types';
 
-// Real EDUZAH course. hero.image/gallery[].src intentionally omitted until
-// real photos exist at public/courses/front-end/ — CourseImage falls back
-// to the branded placeholder. Add once available, e.g.:
-// hero.image = { src: '/courses/front-end/hero.webp', alt: 'EDUZAH Front-End Web Development training' }
+// Real EDUZAH course. Gallery images are still placeholders until real
+// photos exist at public/courses/front-end/ — CourseImage falls back to
+// the branded placeholder for those.
 //
 // PARTIAL DATA: the task said to "continue with the remaining framework/
 // project content exactly as represented by the source PDF" but that PDF
@@ -19,12 +18,14 @@ export const frontEndCourse: Course = {
     title: 'Front-End Web Development Diploma — EDUZAH',
     description:
       'Build modern, responsive and interactive web interfaces using the technologies and workflows used by professional front-end developers.',
+    ogImage: '/courses/front-end/hero.png',
   },
   hero: {
     badge: 'Technology Program',
     headline: 'Front-End Web Development Diploma',
     subheadline:
       'Build modern, responsive and interactive web interfaces using the technologies and workflows used by professional front-end developers.',
+    image: { src: '/courses/front-end/hero.png', alt: 'EDUZAH Front-End Web Development Diploma' },
   },
   quickInfo: {
     duration: '20 Weeks · 150 Hours',

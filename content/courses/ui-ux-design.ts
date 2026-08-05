@@ -1,9 +1,8 @@
 import type { Course } from '@/lib/courses/types';
 
-// Real EDUZAH course. hero.image/gallery[].src intentionally omitted until
-// real photos exist at public/courses/ui-ux-design/ — CourseImage falls
-// back to the branded placeholder. Add once available, e.g.:
-// hero.image = { src: '/courses/ui-ux-design/hero.webp', alt: 'EDUZAH UI/UX Design training' }
+// Real EDUZAH course. Gallery images are still placeholders until real
+// photos exist at public/courses/ui-ux-design/ — CourseImage falls back
+// to the branded placeholder for those.
 //
 // PARTIAL DATA: the task said to "continue the source UX research/UI
 // design modules exactly from the existing EDUZAH source", but that source
@@ -18,12 +17,14 @@ export const uiUxDesignCourse: Course = {
   meta: {
     title: 'UI/UX Design Diploma — EDUZAH',
     description: 'Learn how to research, design and prototype user-centered digital experiences using professional UI/UX workflows and tools.',
+    ogImage: '/courses/ui-ux-design/hero.png',
   },
   hero: {
     badge: 'Technology Program',
     headline: 'UI/UX Design Diploma',
     subheadline:
       'Learn how to research, design and prototype user-centered digital experiences using professional UI/UX workflows and tools.',
+    image: { src: '/courses/ui-ux-design/hero.png', alt: 'EDUZAH UI/UX Design Diploma' },
   },
   quickInfo: {
     duration: '16 Weeks · 120 Hours',
