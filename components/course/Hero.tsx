@@ -11,12 +11,14 @@ import { QuickInfo } from '@/components/course/QuickInfo';
 // down the page. QuickInfo and Pricing live here too, under the image, so
 // the left column (shorter than the form) isn't wasted whitespace; they
 // still come from the same Course data as everywhere else, just placed
-// here instead of as separate page sections. Grid areas (see globals.css)
-// reorder content per breakpoint: mobile is name -> description -> image ->
-// quick info -> form -> pricing (registration stays earlier than pricing);
-// desktop is a two-column (image+quickinfo+pricing) | (content+form)
-// layout, using display:contents wrappers so the two column groups don't
-// interfere with the mobile ordering.
+// here instead of as separate page sections. When a course has pricing,
+// quick info renders merged inside the Pricing card (one card, not two);
+// only courses without pricing fall back to QuickInfo's own standalone
+// card. Grid areas (see globals.css) reorder content per breakpoint:
+// mobile is name -> description -> image -> quick info -> form -> pricing
+// (registration stays earlier than pricing); desktop is a two-column
+// (image+quickinfo+pricing) | (content+form) layout, using display:contents
+// wrappers so the two column groups don't interfere with mobile ordering.
 export function Hero({ course, dict }: { course: Course; dict: Dictionary }) {
   const { hero } = course;
 
@@ -32,12 +34,13 @@ export function Hero({ course, dict }: { course: Course; dict: Dictionary }) {
             sizes="(max-width: 767px) 100vw, 50vw"
           />
         </div>
-        <div className="hero-registration__quickinfo">
-          <QuickInfo quickInfo={course.quickInfo} dict={dict} />
-        </div>
-        {course.pricing && (
+        {course.pricing ? (
           <div className="hero-registration__pricing">
-            <Pricing pricing={course.pricing} dict={dict} />
+            <Pricing pricing={course.pricing} quickInfo={course.quickInfo} dict={dict} />
+          </div>
+        ) : (
+          <div className="hero-registration__quickinfo">
+            <QuickInfo quickInfo={course.quickInfo} dict={dict} />
           </div>
         )}
       </div>

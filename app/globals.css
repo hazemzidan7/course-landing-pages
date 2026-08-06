@@ -632,6 +632,13 @@ a {
   justify-items: start;
 }
 
+.pricing-card__quickinfo {
+  padding-block-end: 0.85rem;
+  margin-block-end: 0.15rem;
+  border-block-end: 1px solid var(--color-border);
+  inline-size: 100%;
+}
+
 .pricing-card__price {
   display: flex;
   align-items: baseline;
