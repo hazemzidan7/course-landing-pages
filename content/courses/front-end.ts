@@ -41,9 +41,9 @@ export const frontEndCourse: Course = {
   ],
   skills: ['HTML5', 'CSS3 & SASS', 'JavaScript', 'TypeScript', 'Bootstrap 5', 'Figma'],
   gallery: [
-    { alt: 'EDUZAH Front-End Development training session' },
-    { alt: 'EDUZAH Front-End Development workshop' },
-    { alt: 'EDUZAH Front-End Development lab session' },
+    { src: '/courses/front-end/gallery-1.jpeg', alt: 'EDUZAH Front-End Development training session' },
+    { src: '/courses/front-end/gallery-2.jpeg', alt: 'EDUZAH Front-End Development workshop' },
+    { src: '/courses/front-end/gallery-3.jpeg', alt: 'EDUZAH Front-End Development lab session' },
   ],
   pricing: {
     currency: 'EGP',
