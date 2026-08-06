@@ -45,6 +45,7 @@ export const ar: Dictionary = {
     installmentsOf: 'أقساط بقيمة',
     registerNow: 'سجل الآن',
     fullPaymentSave: 'ادفع دفعة واحدة ووفّر',
+    fullPaymentApplied: 'تم تطبيق خصم الدفع الكامل ✓',
     specialOffer: 'عرض خاص',
   },
   stickyMobileCta: {

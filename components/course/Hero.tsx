@@ -5,6 +5,7 @@ import { CourseImage } from '@/components/ui/CourseImage';
 import { RegistrationForm } from '@/components/course/RegistrationForm';
 import { Pricing } from '@/components/course/Pricing';
 import { QuickInfo } from '@/components/course/QuickInfo';
+import { PaymentMethodProvider } from '@/lib/context/PaymentMethodContext';
 
 // Registration is the primary conversion action for paid-ad traffic, so the
 // form is part of this first section rather than a separate section further
@@ -23,37 +24,39 @@ export function Hero({ course, dict }: { course: Course; dict: Dictionary }) {
   const { hero } = course;
 
   return (
-    <section className="hero-registration">
-      <div className="hero-registration__left">
-        <div className="hero-registration__media">
-          <CourseImage
-            image={hero.image}
-            placeholderLabel="Hero image"
-            placeholderPrefix={dict.courseImage.placeholder}
-            priority
-            sizes="(max-width: 767px) 100vw, 50vw"
-          />
-        </div>
-        {course.pricing ? (
-          <div className="hero-registration__pricing">
-            <Pricing pricing={course.pricing} quickInfo={course.quickInfo} dict={dict} />
+    <PaymentMethodProvider>
+      <section className="hero-registration">
+        <div className="hero-registration__left">
+          <div className="hero-registration__media">
+            <CourseImage
+              image={hero.image}
+              placeholderLabel="Hero image"
+              placeholderPrefix={dict.courseImage.placeholder}
+              priority
+              sizes="(max-width: 767px) 100vw, 50vw"
+            />
           </div>
-        ) : (
-          <div className="hero-registration__quickinfo">
-            <QuickInfo quickInfo={course.quickInfo} dict={dict} />
-          </div>
-        )}
-      </div>
-      <div className="hero-registration__right">
-        {hero.badge && <span className="badge hero-registration__badge">{hero.badge}</span>}
-        <h1 className="hero-registration__headline">{hero.headline}</h1>
-        {hero.subheadline && <p className="hero-registration__desc">{hero.subheadline}</p>}
-        <div className="hero-registration__form-wrap">
-          <Suspense fallback={null}>
-            <RegistrationForm courseId={course.id} courseSlug={course.slug} dict={dict} />
-          </Suspense>
+          {course.pricing ? (
+            <div className="hero-registration__pricing">
+              <Pricing pricing={course.pricing} quickInfo={course.quickInfo} dict={dict} />
+            </div>
+          ) : (
+            <div className="hero-registration__quickinfo">
+              <QuickInfo quickInfo={course.quickInfo} dict={dict} />
+            </div>
+          )}
         </div>
-      </div>
-    </section>
+        <div className="hero-registration__right">
+          {hero.badge && <span className="badge hero-registration__badge">{hero.badge}</span>}
+          <h1 className="hero-registration__headline">{hero.headline}</h1>
+          {hero.subheadline && <p className="hero-registration__desc">{hero.subheadline}</p>}
+          <div className="hero-registration__form-wrap">
+            <Suspense fallback={null}>
+              <RegistrationForm courseId={course.id} courseSlug={course.slug} dict={dict} />
+            </Suspense>
+          </div>
+        </div>
+      </section>
+    </PaymentMethodProvider>
   );
 }

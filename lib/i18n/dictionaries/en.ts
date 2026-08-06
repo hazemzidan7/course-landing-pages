@@ -41,6 +41,7 @@ export const en: Dictionary = {
     installmentsOf: 'installments of',
     registerNow: 'Register Now',
     fullPaymentSave: 'Pay in full and save an extra',
+    fullPaymentApplied: 'Full payment discount applied ✓',
     specialOffer: 'Special Offer',
   },
   stickyMobileCta: {

@@ -4,8 +4,9 @@ import { useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { submitLead } from '@/lib/leads/submitLead';
 import { getTrackingParams } from '@/lib/tracking/utm';
-import type { AttendancePreference, PaymentPreference } from '@/lib/leads/types';
+import type { AttendancePreference } from '@/lib/leads/types';
 import type { Dictionary } from '@/lib/i18n/types';
+import { usePaymentMethod } from '@/lib/context/PaymentMethodContext';
 
 interface RegistrationFormProps {
   courseId: string;
@@ -19,7 +20,6 @@ interface FormState {
   email: string;
   attendance: AttendancePreference;
   governorate: string;
-  paymentMethod: PaymentPreference;
 }
 
 const initialState: FormState = {
@@ -28,12 +28,12 @@ const initialState: FormState = {
   email: '',
   attendance: 'online',
   governorate: '',
-  paymentMethod: 'full',
 };
 
 export function RegistrationForm({ courseId, courseSlug, dict }: RegistrationFormProps) {
   const t = dict.registrationForm;
   const searchParams = useSearchParams();
+  const { paymentMethod, setPaymentMethod } = usePaymentMethod();
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -56,6 +56,7 @@ export function RegistrationForm({ courseId, courseSlug, dict }: RegistrationFor
     await submitLead({
       ...form,
       email: form.email || undefined,
+      paymentMethod,
       courseId,
       courseSlug,
       ...tracking,
@@ -156,21 +157,21 @@ export function RegistrationForm({ courseId, courseSlug, dict }: RegistrationFor
         <fieldset className="segmented">
           <legend>{t.paymentMethod}</legend>
           <div className="segmented__options">
-            <label className={`segmented__option ${form.paymentMethod === 'full' ? 'is-selected' : ''}`}>
+            <label className={`segmented__option ${paymentMethod === 'full' ? 'is-selected' : ''}`}>
               <input
                 type="radio"
                 name="paymentMethod"
-                checked={form.paymentMethod === 'full'}
-                onChange={() => setForm({ ...form, paymentMethod: 'full' })}
+                checked={paymentMethod === 'full'}
+                onChange={() => setPaymentMethod('full')}
               />
               {t.full}
             </label>
-            <label className={`segmented__option ${form.paymentMethod === 'installments' ? 'is-selected' : ''}`}>
+            <label className={`segmented__option ${paymentMethod === 'installments' ? 'is-selected' : ''}`}>
               <input
                 type="radio"
                 name="paymentMethod"
-                checked={form.paymentMethod === 'installments'}
-                onChange={() => setForm({ ...form, paymentMethod: 'installments' })}
+                checked={paymentMethod === 'installments'}
+                onChange={() => setPaymentMethod('installments')}
               />
               {t.installments}
             </label>

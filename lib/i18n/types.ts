@@ -41,6 +41,7 @@ export interface Dictionary {
     installmentsOf: string;
     registerNow: string;
     fullPaymentSave: string;
+    fullPaymentApplied: string;
     specialOffer: string;
   };
   stickyMobileCta: {
