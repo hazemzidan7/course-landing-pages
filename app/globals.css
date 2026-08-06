@@ -201,11 +201,11 @@ a {
 
 /* ---------- Hero + registration (first section, form immediately visible) ---------- */
 /* Mobile: .hero-registration__left/__right are display:contents, so their
-   children (media/pricing, badge/headline/desc/form) act as flat grid
-   items ordered purely by grid-area — form stays well before pricing.
-   Desktop: the two wrappers become real flex columns and are themselves
-   the only two grid items, so left-column height (image + pricing) is
-   independent of the right column's (taller) form. */
+   children (media/pricing, badge/headline/form) act as flat grid items
+   ordered purely by grid-area — pricing sits right under the image, ahead
+   of the form. Desktop: the two wrappers become real flex columns and are
+   themselves the only two grid items, so left-column height (image +
+   pricing) is independent of the right column's (taller) form. */
 .hero-registration {
   display: grid;
   gap: 1rem;
@@ -215,11 +215,10 @@ a {
   grid-template-areas:
     'badge'
     'headline'
-    'desc'
     'media'
+    'pricing'
     'quickinfo'
-    'form'
-    'pricing';
+    'form';
 }
 
 .hero-registration__left,
@@ -238,13 +237,6 @@ a {
   grid-area: headline;
   font-size: clamp(1.375rem, 1.15rem + 1vw, 1.875rem);
   margin-block-end: 0.35rem;
-}
-
-.hero-registration__desc {
-  grid-area: desc;
-  font-size: 1rem;
-  max-width: 34rem;
-  margin-block-end: 0.5rem;
 }
 
 .hero-registration__media {

@@ -68,10 +68,10 @@ export default async function CoursePage({ params }: { params: Promise<Params> }
   return (
     <main>
       <Hero course={course} dict={dict} />
-      <Audience audience={course.audience} dict={dict} />
-      <Curriculum curriculum={course.curriculum} dict={dict} />
-      <Skills skills={course.skills} dict={dict} />
       <Gallery gallery={course.gallery} dict={dict} />
+      <Skills skills={course.skills} dict={dict} />
+      <Curriculum curriculum={course.curriculum} dict={dict} />
+      <Audience audience={course.audience} dict={dict} />
       <FAQSection faq={course.faq} dict={dict} />
       <FinalCTA finalCta={course.finalCta} />
       <StickyMobileCTA dict={dict} />

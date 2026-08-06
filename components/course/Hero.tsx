@@ -16,8 +16,8 @@ import { PaymentMethodProvider } from '@/lib/context/PaymentMethodContext';
 // quick info renders merged inside the Pricing card (one card, not two);
 // only courses without pricing fall back to QuickInfo's own standalone
 // card. Grid areas (see globals.css) reorder content per breakpoint:
-// mobile is name -> description -> image -> quick info -> form -> pricing
-// (registration stays earlier than pricing); desktop is a two-column
+// mobile is name -> image -> pricing -> quick info -> form (price sits
+// right under the image, ahead of the form); desktop is a two-column
 // (image+quickinfo+pricing) | (content+form) layout, using display:contents
 // wrappers so the two column groups don't interfere with mobile ordering.
 export function Hero({ course, dict }: { course: Course; dict: Dictionary }) {
@@ -49,7 +49,6 @@ export function Hero({ course, dict }: { course: Course; dict: Dictionary }) {
         <div className="hero-registration__right">
           {hero.badge && <span className="badge hero-registration__badge">{hero.badge}</span>}
           <h1 className="hero-registration__headline">{hero.headline}</h1>
-          {hero.subheadline && <p className="hero-registration__desc">{hero.subheadline}</p>}
           <div className="hero-registration__form-wrap">
             <Suspense fallback={null}>
               <RegistrationForm courseId={course.id} courseSlug={course.slug} dict={dict} />
