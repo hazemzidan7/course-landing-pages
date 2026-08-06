@@ -47,6 +47,7 @@ export const en: Dictionary = {
       'South Sinai',
       'Ismailia',
       'Damietta',
+      'Outside Egypt',
     ],
     paymentMethod: 'Preferred Payment Method',
     full: 'Full Payment',
