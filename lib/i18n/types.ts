@@ -18,6 +18,8 @@ export interface Dictionary {
     online: string;
     offline: string;
     governorate: string;
+    governoratePlaceholder: string;
+    governorates: string[];
     paymentMethod: string;
     full: string;
     installments: string;

@@ -147,11 +147,14 @@ export function RegistrationForm({ courseId, courseSlug, dict }: RegistrationFor
 
         <label>
           {t.governorate}
-          <input
-            type="text"
-            value={form.governorate}
-            onChange={(e) => setForm({ ...form, governorate: e.target.value })}
-          />
+          <select value={form.governorate} onChange={(e) => setForm({ ...form, governorate: e.target.value })}>
+            <option value="">{t.governoratePlaceholder}</option>
+            {t.governorates.map((governorate) => (
+              <option key={governorate} value={governorate}>
+                {governorate}
+              </option>
+            ))}
+          </select>
         </label>
 
         <fieldset className="segmented">
