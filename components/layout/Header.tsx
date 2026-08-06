@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { Dictionary, Locale } from '@/lib/i18n/types';
@@ -17,11 +18,13 @@ export function Header({ dict, locale }: HeaderProps) {
   const pathname = usePathname();
   const alternateHref =
     locale === 'en' ? `/ar${pathname === '/' ? '' : pathname}` : pathname.replace(/^\/ar/, '') || '/';
+  const homeHref = locale === 'en' ? '/' : '/ar';
 
   return (
     <header className="site-header">
-      {/* Text wordmark placeholder — swap for the real EDUZAH logo image/SVG later. */}
-      <span className="site-header__logo">EDUZAH</span>
+      <Link href={homeHref} className="site-header__logo" aria-label="EDUZAH home">
+        <Image src="/logo.png" alt="EDUZAH" width={116} height={32} priority />
+      </Link>
       <div className="site-header__actions">
         <Link href={alternateHref} className="site-header__lang" hrefLang={locale === 'en' ? 'ar' : 'en'}>
           {dict.header.switchTo}
