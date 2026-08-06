@@ -58,9 +58,9 @@ export const programmingFundamentalsCourse: Course = {
   ],
   skills: ['C++', 'Object-Oriented Programming', 'Data Structures & Algorithms', 'Git & GitHub', 'Database Systems', 'Problem Solving'],
   gallery: [
-    { alt: 'EDUZAH Programming Fundamentals training session' },
-    { alt: 'EDUZAH Programming Fundamentals workshop' },
-    { alt: 'EDUZAH Programming Fundamentals lab session' },
+    { src: '/courses/programming-fundamentals/gallery-1.jpeg', alt: 'EDUZAH Programming Fundamentals training session' },
+    { src: '/courses/programming-fundamentals/gallery-2.jpeg', alt: 'EDUZAH Programming Fundamentals workshop' },
+    { src: '/courses/programming-fundamentals/gallery-3.jpeg', alt: 'EDUZAH Programming Fundamentals lab session' },
   ],
   pricing: {
     currency: 'EGP',

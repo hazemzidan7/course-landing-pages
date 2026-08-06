@@ -51,9 +51,9 @@ export const computerBasicsCourse: Course = {
   ],
   skills: ['Professional Computer Usage', 'Windows', 'File Management', 'Internet Safety', 'Microsoft Office', 'Digital Productivity'],
   gallery: [
-    { alt: 'EDUZAH Computer Basics training session' },
-    { alt: 'EDUZAH Computer Basics workshop' },
-    { alt: 'EDUZAH Computer Basics lab session' },
+    { src: '/courses/computer-basics/gallery-1.jfif', alt: 'EDUZAH Computer Basics training session' },
+    { src: '/courses/computer-basics/gallery-2.jfif', alt: 'EDUZAH Computer Basics workshop' },
+    { src: '/courses/computer-basics/gallery-3.jfif', alt: 'EDUZAH Computer Basics lab session' },
   ],
   pricing: {
     currency: 'EGP',

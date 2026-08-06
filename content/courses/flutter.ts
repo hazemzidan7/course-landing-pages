@@ -33,9 +33,9 @@ export const flutterCourse: Course = {
     language: 'English',
   },
   gallery: [
-    { alt: 'EDUZAH Flutter Development training session' },
-    { alt: 'EDUZAH Flutter Development workshop' },
-    { alt: 'EDUZAH Flutter Development lab session' },
+    { src: '/courses/flutter/gallery-1.jfif', alt: 'EDUZAH Flutter Development training session' },
+    { src: '/courses/flutter/gallery-2.jfif', alt: 'EDUZAH Flutter Development workshop' },
+    { src: '/courses/flutter/gallery-3.jfif', alt: 'EDUZAH Flutter Development lab session' },
   ],
   pricing: {
     currency: 'EGP',
