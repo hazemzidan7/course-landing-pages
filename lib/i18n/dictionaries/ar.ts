@@ -65,8 +65,8 @@ export const ar: Dictionary = {
   },
   sections: {
     audience: 'هذا الكورس مناسب لمن؟',
-    curriculum: 'ماذا ستتعلم؟',
-    skills: 'ماذا ستكون قادرًا على فعله',
+    curriculum: 'محتوى الكورس',
+    skills: 'المهارات التي ستكتسبها',
     gallery: 'تجربة تدريبية حقيقية',
     pricing: 'السعر',
     faq: 'الأسئلة الشائعة',

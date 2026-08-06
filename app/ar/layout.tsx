@@ -1,15 +1,22 @@
+import type { Metadata } from 'next';
+import '../globals.css';
+import { manrope } from '@/lib/fonts';
+import { baseMetadata } from '@/lib/siteMetadata';
 import { Header } from '@/components/layout/Header';
 import { getDictionary } from '@/lib/i18n/getDictionary';
 
-// Nested layout can't redeclare <html>/<body> (only app/layout.tsx can), so
-// RTL/lang is applied on this wrapping element instead — it still fully
-// controls text direction and font fallback for everything under /ar.
+export const metadata: Metadata = baseMetadata;
+
+// Own root layout — see app/(en)/layout.tsx for why. This is what gives
+// /ar/* pages a real <html lang="ar" dir="rtl">, not just an inner div.
 export default function ArabicLayout({ children }: { children: React.ReactNode }) {
   const dict = getDictionary('ar');
   return (
-    <div lang="ar" dir="rtl" className="locale-ar">
-      <Header dict={dict} locale="ar" />
-      {children}
-    </div>
+    <html lang="ar" dir="rtl" className={manrope.variable}>
+      <body>
+        <Header dict={dict} locale="ar" />
+        {children}
+      </body>
+    </html>
   );
 }
