@@ -65,4 +65,13 @@ export const backEndCourse: Course = {
     { alt: 'EDUZAH Back-End Development workshop' },
     { alt: 'EDUZAH Back-End Development lab session' },
   ],
+  pricing: {
+    currency: 'EGP',
+    fullPrice: 5000,
+    originalPrice: 8000,
+    installmentCount: 3,
+    installmentAmount: 1667,
+    currentOffer: { label: 'Special Offer', discountPercent: 38 },
+    fullPaymentDiscount: 300,
+  },
 };

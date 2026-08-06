@@ -45,4 +45,13 @@ export const frontEndCourse: Course = {
     { alt: 'EDUZAH Front-End Development workshop' },
     { alt: 'EDUZAH Front-End Development lab session' },
   ],
+  pricing: {
+    currency: 'EGP',
+    fullPrice: 4500,
+    originalPrice: 6000,
+    installmentCount: 3,
+    installmentAmount: 1500,
+    currentOffer: { label: 'Special Offer', discountPercent: 25 },
+    fullPaymentDiscount: 300,
+  },
 };

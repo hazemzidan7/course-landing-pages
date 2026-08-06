@@ -62,4 +62,13 @@ export const programmingFundamentalsCourse: Course = {
     { alt: 'EDUZAH Programming Fundamentals workshop' },
     { alt: 'EDUZAH Programming Fundamentals lab session' },
   ],
+  pricing: {
+    currency: 'EGP',
+    fullPrice: 4000,
+    originalPrice: 6000,
+    installmentCount: 3,
+    installmentAmount: 1333,
+    currentOffer: { label: 'Special Offer', discountPercent: 33 },
+    fullPaymentDiscount: 300,
+  },
 };

@@ -40,6 +40,8 @@ export interface Dictionary {
     or: string;
     installmentsOf: string;
     registerNow: string;
+    fullPaymentSave: string;
+    specialOffer: string;
   };
   stickyMobileCta: {
     registerNow: string;

@@ -653,6 +653,12 @@ a {
   color: var(--color-text-muted);
 }
 
+.pricing-card__full-payment-note {
+  color: var(--color-secondary-dark);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
 /* ---------- Registration form ---------- */
 .registration-form {
   max-width: 26rem;

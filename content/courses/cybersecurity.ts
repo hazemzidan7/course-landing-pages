@@ -37,4 +37,13 @@ export const cybersecurityCourse: Course = {
     { alt: 'EDUZAH Cyber Security workshop' },
     { alt: 'EDUZAH Cyber Security lab session' },
   ],
+  pricing: {
+    currency: 'EGP',
+    fullPrice: 6000,
+    originalPrice: 8000,
+    installmentCount: 3,
+    installmentAmount: 2000,
+    currentOffer: { label: 'Special Offer', discountPercent: 25 },
+    fullPaymentDiscount: 300,
+  },
 };

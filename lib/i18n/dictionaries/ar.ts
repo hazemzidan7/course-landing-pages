@@ -44,6 +44,8 @@ export const ar: Dictionary = {
     or: 'أو',
     installmentsOf: 'أقساط بقيمة',
     registerNow: 'سجل الآن',
+    fullPaymentSave: 'ادفع دفعة واحدة ووفّر',
+    specialOffer: 'عرض خاص',
   },
   stickyMobileCta: {
     registerNow: 'سجل الآن',

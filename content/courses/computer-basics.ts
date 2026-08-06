@@ -55,4 +55,11 @@ export const computerBasicsCourse: Course = {
     { alt: 'EDUZAH Computer Basics workshop' },
     { alt: 'EDUZAH Computer Basics lab session' },
   ],
+  pricing: {
+    currency: 'EGP',
+    fullPrice: 1500,
+    installmentCount: 3,
+    installmentAmount: 500,
+    fullPaymentDiscount: 300,
+  },
 };

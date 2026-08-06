@@ -37,4 +37,13 @@ export const flutterCourse: Course = {
     { alt: 'EDUZAH Flutter Development workshop' },
     { alt: 'EDUZAH Flutter Development lab session' },
   ],
+  pricing: {
+    currency: 'EGP',
+    fullPrice: 4500,
+    originalPrice: 6000,
+    installmentCount: 3,
+    installmentAmount: 1500,
+    currentOffer: { label: 'Special Offer', discountPercent: 25 },
+    fullPaymentDiscount: 300,
+  },
 };

@@ -60,4 +60,13 @@ export const artificialIntelligenceCourse: Course = {
     { alt: 'EDUZAH Artificial Intelligence workshop' },
     { alt: 'EDUZAH Artificial Intelligence lab session' },
   ],
+  pricing: {
+    currency: 'EGP',
+    fullPrice: 5000,
+    originalPrice: 8000,
+    installmentCount: 3,
+    installmentAmount: 1667,
+    currentOffer: { label: 'Special Offer', discountPercent: 38 },
+    fullPaymentDiscount: 300,
+  },
 };

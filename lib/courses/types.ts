@@ -69,6 +69,8 @@ export interface CoursePricing {
   installmentCount?: number;
   installmentAmount?: number;
   currentOffer?: CourseOffer;
+  // Extra discount applied only if the student pays in full (not installments).
+  fullPaymentDiscount?: number;
 }
 
 export interface CourseInstructor {

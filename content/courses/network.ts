@@ -67,4 +67,13 @@ export const networkCourse: Course = {
     { alt: 'EDUZAH Network Engineering workshop' },
     { alt: 'EDUZAH Network Engineering lab session' },
   ],
+  pricing: {
+    currency: 'EGP',
+    fullPrice: 5000,
+    originalPrice: 8000,
+    installmentCount: 3,
+    installmentAmount: 1667,
+    currentOffer: { label: 'Special Offer', discountPercent: 38 },
+    fullPaymentDiscount: 300,
+  },
 };

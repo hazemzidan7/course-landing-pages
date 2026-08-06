@@ -40,6 +40,8 @@ export const en: Dictionary = {
     or: 'Or',
     installmentsOf: 'installments of',
     registerNow: 'Register Now',
+    fullPaymentSave: 'Pay in full and save an extra',
+    specialOffer: 'Special Offer',
   },
   stickyMobileCta: {
     registerNow: 'Register Now',

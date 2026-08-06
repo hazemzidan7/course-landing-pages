@@ -30,6 +30,12 @@ export function Pricing({ pricing, dict }: { pricing?: CoursePricing; dict: Dict
           </p>
         )}
 
+        {pricing.fullPaymentDiscount && (
+          <p className="pricing-card__full-payment-note">
+            {dict.pricing.fullPaymentSave} {pricing.fullPaymentDiscount} {pricing.currency}
+          </p>
+        )}
+
         <a className="cta-button" href="#registration">
           {dict.pricing.registerNow}
         </a>

@@ -57,4 +57,13 @@ export const dataAnalysisCourse: Course = {
     { alt: 'EDUZAH Data Analysis workshop' },
     { alt: 'EDUZAH Data Analysis lab session' },
   ],
+  pricing: {
+    currency: 'EGP',
+    fullPrice: 6000,
+    originalPrice: 8000,
+    installmentCount: 3,
+    installmentAmount: 2000,
+    currentOffer: { label: 'Special Offer', discountPercent: 25 },
+    fullPaymentDiscount: 300,
+  },
 };
