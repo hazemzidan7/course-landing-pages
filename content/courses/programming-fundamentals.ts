@@ -1,9 +1,5 @@
 import type { Course } from '@/lib/courses/types';
 
-// Real EDUZAH course. hero.image/gallery[].src intentionally omitted until
-// real photos exist at public/courses/programming-fundamentals/ —
-// CourseImage falls back to the branded placeholder. Add once available:
-// hero.image = { src: '/courses/programming-fundamentals/hero.webp', alt: 'EDUZAH Programming Fundamentals training' }
 export const programmingFundamentalsCourse: Course = {
   id: 'programming-fundamentals',
   slug: 'programming-fundamentals',
@@ -17,6 +13,7 @@ export const programmingFundamentalsCourse: Course = {
     badge: 'Technology Program',
     headline: 'Programming Fundamentals Diploma',
     subheadline: 'Build a strong computer science and programming foundation before specializing in any software development track.',
+    image: { src: '/courses/programming-fundamentals/hero.png', alt: 'EDUZAH Programming Fundamentals Diploma' },
   },
   quickInfo: {
     duration: '16 Weeks · 100 Hours',
